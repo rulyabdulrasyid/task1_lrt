@@ -3,7 +3,7 @@
 @section('container')
 
 <div class="row justify-content-center">
-    <div class="col-md-4">
+    <div class="col-md-6">
 
         @if(session('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -24,9 +24,9 @@
             <form action="/login" method="post">
                 @csrf
                     <div class="form-floating">
-                        <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" autofocus required value="{{old('email')}}">
-                        <label for="email">Email address</label>
-                        @error('email')
+                        <input type="username" name="username" class="form-control @error('username') is-invalid @enderror" id="username" placeholder="name@example.com" autofocus required value="{{old('username')}}">
+                        <label for="username">Username</label>
+                        @error('username')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>

@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('container')
-    <h1 class="mb-3 text-center">POSTS</h1>
+    {{-- <h1 class="mb-3 text-center">POSTS</h1> --}}
 
     @if (session('success'))
         <div class="alert alert-success" role="alert">
@@ -13,7 +13,7 @@
         <div class="col-md-6">
             <form action="/posts">                
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Serach.." name="search" value="{{ request('search') }}">
+                    <input type="text" class="form-control" placeholder="Search.." name="search" value="{{ request('search') }}">
                     <button class="btn btn-danger" type="submit">Search</button>
                   </div>
             </form>
@@ -47,7 +47,7 @@
     </div>
     
 
-    <div class="container">
+    <div class="container mb-5">
         <div class="row">
             @foreach($posts->skip(1) as $post)    
             <div class="col-md-4 mb-3">
@@ -81,6 +81,8 @@
     <p class="text-center fs-4">No post found</p>
     @endif
 
-    {{ $posts->links() }}
+    <div>
+        {{ $posts->links() }}
+    </div>
 @endsection
     

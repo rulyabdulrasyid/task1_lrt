@@ -14,12 +14,14 @@ class PostController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
+    {     
+
         return view('posts.posts',[
             'title'=> "All Posts",
             'active'=> 'posts',
-            'posts'=> Post::latest()->paginate(7)
+            'posts'=> Post::latest()->filter(request(['search']))->paginate(7), 
         ]);
+        // filter from model
     }
 
     /**
